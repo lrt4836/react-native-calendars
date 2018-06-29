@@ -29,6 +29,11 @@ export default function styleConstructor(theme={}) {
     todayText: {
       color: appStyle.todayTextColor
     },
+    todayContainer: {
+      borderColor: appStyle.todayBorderColor,
+      borderWidth: 1,
+      borderRadius: 16
+    },
     selectedText: {
       color: appStyle.selectedDayTextColor
     },

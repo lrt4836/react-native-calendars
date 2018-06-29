@@ -12,6 +12,7 @@ export const textDefaultColor = '#2d4150';
 export const textColor = '#43515c';
 export const textLinkColor = '#00adf5';
 export const textSecondaryColor = '#7a92a5';
+export const todayBorderColor = '#3388FF';
 
 export const textDayFontFamily = 'System';
 export const textMonthFontFamily = 'System';

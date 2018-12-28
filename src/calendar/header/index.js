@@ -75,34 +75,36 @@ class CalendarHeader extends Component {
     let rightArrow = <View />;
     let weekDaysNames = weekDayNames(this.props.firstDay);
     if (!this.props.hideArrows) {
-      leftArrow = (
-        <TouchableOpacity
-          onPress={this.onPressLeft}
-          style={this.style.arrow}
-          hitSlop={{left: 20, right: 20, top: 20, bottom: 20}}
-        >
-          {this.props.renderArrow
-            ? this.props.renderArrow('left')
-            : <Image
-                source={require('../img/previous.png')}
-                style={this.style.arrowImage}
-              />}
-        </TouchableOpacity>
-      );
-      rightArrow = (
-        <TouchableOpacity
-          onPress={this.onPressRight}
-          style={this.style.arrow}
-          hitSlop={{left: 20, right: 20, top: 20, bottom: 20}}
-        >
-          {this.props.renderArrow
-            ? this.props.renderArrow('right')
-            : <Image
-                source={require('../img/next.png')}
-                style={this.style.arrowImage}
-              />}
-        </TouchableOpacity>
-      );
+      leftArrow = this.props.renderArrow
+        ? this.props.renderArrow('left', this.props.month, this.onPressLeft)
+        : (
+          <TouchableOpacity
+            onPress={this.onPressLeft}
+            style={this.style.arrow}
+            hitSlop={{left: 20, right: 20, top: 20, bottom: 20}}
+            testID={CHANGE_MONTH_LEFT_ARROW}
+          >
+            <Image
+              source={require('../img/previous.png')}
+              style={this.style.arrowImage}
+            />
+          </TouchableOpacity>
+        );
+      rightArrow = this.props.renderArrow
+        ? this.props.renderArrow('right', this.props.month, this.onPressRight)
+        : (
+          <TouchableOpacity
+            onPress={this.onPressRight}
+            style={this.style.arrow}
+            hitSlop={{left: 20, right: 20, top: 20, bottom: 20}}
+            testID={CHANGE_MONTH_RIGHT_ARROW}
+          >
+            <Image
+              source={require('../img/next.png')}
+              style={this.style.arrowImage}
+            />
+          </TouchableOpacity>
+        );
     }
     let indicator;
     if (this.props.showIndicator) {
